@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get $20 Free Credits | MaximumSettings Cloud Gaming</title>
+    <!-- Tailwind CSS for sleek styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between">
+
+    <!-- Main Content Container -->
+    <main class="flex-grow flex flex-col items-center justify-center px-4 py-12">
+        <div class="max-w-xl w-full text-center space-y-8 bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-2xl">
+            
+            <!-- Badge -->
+            <span class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                Exclusive Gamer Bonus 🎮
+            </span>
+
+            <!-- Main Heading -->
+            <div class="space-y-3">
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 via-teal-400 to-indigo-400 bg-clip-text text-transparent">
+                    Get $20.00 Free Credits
+                </h1>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Upgrade to an ultra-powerful cloud gaming rig. Use this referral code on the order form to instantly add 20 free hours to your setup.
+                </p>
+            </div>
+
+            <!-- The Copy Code Box -->
+            <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-3">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-widest block">Your Referral Code</span>
+                
+                <div class="flex flex-col sm:flex-row items-center gap-3">
+                    <!-- The Code Displays Here -->
+                    <div id="codeDisplay" class="w-full bg-slate-900 font-mono text-xl sm:text-2xl font-bold py-3 px-4 rounded-lg tracking-wider border border-slate-700 text-cyan-300">
+                        2WE5TXYKHP
+                    </div>
+                    
+                    <!-- Copy Button -->
+                    <button onclick="copyCode()" id="copyBtn" class="w-full sm:w-auto whitespace-nowrap bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold py-3.5 px-6 rounded-lg transition-all duration-200 shadow-lg shadow-cyan-600/20 flex items-center justify-center gap-2 text-sm">
+                        Copy Code
+                    </button>
+                </div>
+            </div>
+
+            <!-- Next Step Action Button -->
+            <div class="pt-2">
+                <a href="https://maximumsettings.com" target="_blank" class="inline-flex items-center justify-center w-full bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-400 hover:to-cyan-400 text-slate-950 font-extrabold py-4 px-8 rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 shadow-xl shadow-teal-500/10">
+                    Go to MaximumSettings Order Form 🚀
+                </a>
+                <p class="text-xs text-slate-500 mt-3">
+                    *Make sure to paste the code in the "Referral Code" field at checkout.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full text-center py-6 text-xs text-slate-600 border-t border-slate-900">
+        <p>This is an independent community referral page. Not officially affiliated with MaximumSettings Inc.</p>
+    </footer>
+
+    <!-- Copy Function Functionality -->
+    <script>
+        function copyCode() {
+            const codeText = "2WE5TXYKHP";
+            const copyBtn = document.getElementById('copyBtn');
+            
+            navigator.clipboard.writeText(codeText).then(() => {
+                // Success State Animation
+                copyBtn.innerHTML = "Copied! ✓";
+                copyBtn.classList.remove('bg-cyan-600', 'hover:bg-cyan-500', 'text-slate-950');
+                copyBtn.classList.add('bg-emerald-500', 'text-slate-950');
+                
+                // Reset after 3 seconds
+                setTimeout(() => {
+                    copyBtn.innerHTML = "Copy Code";
+                    copyBtn.classList.remove('bg-emerald-500');
+                    copyBtn.classList.add('bg-cyan-600', 'hover:bg-cyan-500', 'text-slate-950');
+                }, 3000);
+            }).catch(err => {
+                console.error('Failed to copy code: ', err);
+            });
+        }
+    </script>
+
+</body>
+</html>
