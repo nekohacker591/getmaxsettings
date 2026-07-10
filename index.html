@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18269911346">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18269911346');
-</script>
-
-    
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18269911346"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18269911346');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get $20 Free Credits | MaximumSettings Cloud Gaming</title>
@@ -64,11 +61,12 @@
 
             <!-- Next Step Action Button -->
             <div class="pt-2">
-                <a href="https://maximumsettings.com" target="_blank" class="inline-flex items-center justify-center w-full bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-400 hover:to-cyan-400 text-slate-950 font-extrabold py-4 px-8 rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 shadow-xl shadow-teal-500/10">
+                <!-- Added id="orderBtn" and changed to call trackConversion() -->
+                <a href="https://maximumsettings.com" target="_blank" id="orderBtn" onclick="trackConversion(event)" class="inline-flex items-center justify-center w-full bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-400 hover:to-cyan-400 text-slate-950 font-extrabold py-4 px-8 rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 shadow-xl shadow-teal-500/10">
                     Go to MaximumSettings Order Form 🚀
                 </a>
                 <p class="text-xs text-slate-500 mt-3">
-                    *Make sure to paste the code in the "Referral Code" field at checkout.
+                    *Clicking the button copies your code! Just paste it in the "Referral Code" field at checkout.
                 </p>
             </div>
 
@@ -80,19 +78,19 @@
         <p>This is an independent community referral page. Not officially affiliated with MaximumSettings Inc.</p>
     </footer>
 
-    <!-- Copy Function Functionality -->
+    <!-- Script Functionality -->
     <script>
+        const referralCode = "2WE5TXYKHP";
+
+        // Manual copy button function
         function copyCode() {
-            const codeText = "2WE5TXYKHP";
             const copyBtn = document.getElementById('copyBtn');
             
-            navigator.clipboard.writeText(codeText).then(() => {
-                // Success State Animation
+            navigator.clipboard.writeText(referralCode).then(() => {
                 copyBtn.innerHTML = "Copied! ✓";
                 copyBtn.classList.remove('bg-cyan-600', 'hover:bg-cyan-500', 'text-slate-950');
                 copyBtn.classList.add('bg-emerald-500', 'text-slate-950');
                 
-                // Reset after 3 seconds
                 setTimeout(() => {
                     copyBtn.innerHTML = "Copy Code";
                     copyBtn.classList.remove('bg-emerald-500');
@@ -101,6 +99,21 @@
             }).catch(err => {
                 console.error('Failed to copy code: ', err);
             });
+        }
+
+        // Auto-copy code and track Google conversion when clicking the order button
+        function trackConversion(event) {
+            // Auto-copy code to clipboard for convenience
+            navigator.clipboard.writeText(referralCode).catch(err => console.error(err));
+
+            // Fire the Google Ads Conversion Event
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-18269911346/ORDER_CLICK_LABEL',
+                    'value': 1.0,
+                    'currency': 'USD'
+                });
+            }
         }
     </script>
 
